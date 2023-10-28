@@ -27,5 +27,19 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+Route::get('about', function () {
+    return view('about');
+   });
+Route::get('products', function () {
+    return view('products');
+   });
+Route::get('services', function () {
+    return view('services');
+   });
+
+Route::get('hel', 'App\Http\Controllers\TasksController@index');   
+Route::resource('chirps', 'App\Http\Controllers\ChirpController')
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
+    ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';

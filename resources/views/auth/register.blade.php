@@ -1,4 +1,10 @@
+<head>
+ <title>My Site | @yield('title', 'Home Page')</title>
+</head>
 <x-guest-layout>
+@section('content')
+<h1> For registration plz fill out the form!</h1>
+@show
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
@@ -49,4 +55,5 @@
             </x-primary-button>
         </div>
     </form>
+ 
 </x-guest-layout>
